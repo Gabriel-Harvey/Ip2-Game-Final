@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TextTrigger : MonoBehaviour
 {
-
+    public PlayerCollisionMangement collisionMangement;
     public GameObject textBox;
     public static bool xPessed;
 
@@ -12,9 +12,11 @@ public class TextTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            collisionMangement = collision.gameObject.GetComponent<PlayerCollisionMangement>();
+            collisionMangement.textTrigger = this;
+            collisionMangement.TextCall();
             textBox.SetActive(true);
             Time.timeScale = 0;
-            //Destroy(gameObject);
         }
 
         
@@ -22,11 +24,11 @@ public class TextTrigger : MonoBehaviour
 
     public void Update()
     {
-        if(xPessed == true)
+        /*if(xPessed == true)
         {
             textBox.SetActive(false);
             xPessed = false;
-        }
+        }*/
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -35,6 +37,12 @@ public class TextTrigger : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void DestroyText()
+    {
+        Time.timeScale = 1;
+        textBox.SetActive(false);
     }
 
 }

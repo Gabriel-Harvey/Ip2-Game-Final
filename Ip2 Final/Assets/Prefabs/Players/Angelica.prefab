@@ -103,7 +103,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 2888315905155051949}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 390fc7ede83bd624dae6256d1cecdb0e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -183,6 +183,7 @@ MonoBehaviour:
   leverColliding: 0
   audioSource: {fileID: 8020492325473789930}
   button: {fileID: 8300000, guid: fac734a162625a442a836033dd6bf1ea, type: 3}
+  textTrigger: {fileID: 0}
 --- !u!82 &8020492325473789930
 AudioSource:
   m_ObjectHideFlags: 0

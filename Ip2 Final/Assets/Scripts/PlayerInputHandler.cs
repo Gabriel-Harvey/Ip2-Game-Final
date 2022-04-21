@@ -13,6 +13,10 @@ public class PlayerInputHandler : MonoBehaviour
     public GameObject spawn;
     public int indexValue;
 
+    public TextTrigger trigger;
+    public bool paused;
+
+
     void Start()
     {
         
@@ -72,15 +76,20 @@ public class PlayerInputHandler : MonoBehaviour
             if (context.started)
             {
                 player.interact();
-                //Debug.Log("Pressed");
+
+                if (paused == true)
+                {
+
+                    trigger.DestroyText();
+                    paused = false;
+                    Debug.Log("destroy");
+                }
             }
 
             if (context.canceled)
             {
                 player.interactCancel();
             }
-            Time.timeScale = 1;
-            TextTrigger.xPessed = true;
         }
     }
     public void ResetRadial(InputAction.CallbackContext context)

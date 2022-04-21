@@ -58,7 +58,6 @@ public class Movement : MonoBehaviour
         }
 
 
-        Debug.Log(_rigidbody.velocity.y);
     }
 
     public void Update()

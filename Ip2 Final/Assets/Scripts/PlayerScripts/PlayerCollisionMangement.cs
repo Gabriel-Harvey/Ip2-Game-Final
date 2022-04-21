@@ -28,12 +28,15 @@ public class PlayerCollisionMangement : MonoBehaviour
     SoulsManager souls;
     bool canLeave;
 
+    [Header("Naritive Triggers")]
+    public TextTrigger textTrigger;
+
 
     private void Start()
     {
         heartSystem = GameObject.FindGameObjectWithTag("InputManager").GetComponent<HeartSystem>();
         souls = GameObject.Find("SoulsManager").GetComponent<SoulsManager>();
-
+        inputHandler = GameObject.FindGameObjectWithTag("PlayerInput").GetComponent<PlayerInputHandler>();
     }
 
     private void FixedUpdate()
@@ -128,6 +131,10 @@ public class PlayerCollisionMangement : MonoBehaviour
         }
     }
 
-   
+    public void TextCall()
+    {
+        inputHandler.trigger = textTrigger;
+        inputHandler.paused = true;
+    }
 
 }
