@@ -108,6 +108,12 @@ public class PlayerCollisionMangement : MonoBehaviour
             
         }
 
+        if (collision.gameObject.tag == "Checkpoint")
+        {
+            inputHandler.spawn.gameObject.transform.position = collision.gameObject.transform.position;
+                
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)

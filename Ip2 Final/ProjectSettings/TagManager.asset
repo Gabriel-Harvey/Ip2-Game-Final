@@ -15,6 +15,7 @@ TagManager:
   - PlayerInput
   - Soul
   - PlatformLever
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
