@@ -7,7 +7,7 @@ public class Manager : MonoBehaviour
 {
     public void Level1Button()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("CharacterSelect");
     }
 
     public void Level2Button()

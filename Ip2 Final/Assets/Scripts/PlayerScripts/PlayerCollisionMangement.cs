@@ -13,7 +13,7 @@ public class PlayerCollisionMangement : MonoBehaviour
     public bool isPressed;
     public PlayerInputHandler inputHandler;
     public Movement movement;
-    HeartSystem heartSystem;
+    public HeartSystem heartSystem;
     public static bool Death;
 
     [Header("Platfrom Lever")]
@@ -51,16 +51,16 @@ public class PlayerCollisionMangement : MonoBehaviour
             SceneManager.LoadScene("MenuScreen");
         }
 
-        if(leverColliding == true && isPressed == true)
+        if (leverColliding == true && isPressed == true)
         {
             platfromLever.pulled = true;
         }
 
-        
-    
+
+
     }
 
-    
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -68,7 +68,7 @@ public class PlayerCollisionMangement : MonoBehaviour
         {
             case ("Death"):
                 Death = true;
-                heartSystem.TakeDamage(1);          
+                heartSystem.TakeDamage(1);
                 break;
 
             case ("Button"):
@@ -105,13 +105,13 @@ public class PlayerCollisionMangement : MonoBehaviour
                 canLeave = true;
             }
             exitColliding = true;
-            
+
         }
 
         if (collision.gameObject.tag == "Checkpoint")
         {
             inputHandler.spawn.gameObject.transform.position = collision.gameObject.transform.position;
-                
+
         }
 
     }
@@ -139,8 +139,19 @@ public class PlayerCollisionMangement : MonoBehaviour
 
     public void TextCall()
     {
+
         inputHandler.trigger = textTrigger;
         inputHandler.paused = true;
+
+  
     }
 
+    public void NewScene()
+    {
+        
+        heartSystem = GameObject.FindGameObjectWithTag("InputManager").GetComponent<HeartSystem>();
+        souls = GameObject.Find("SoulsManager").GetComponent<SoulsManager>();
+        Debug.Log("CalledCo");
+    }
 }
+

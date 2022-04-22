@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerInputHandler : MonoBehaviour
 {
     Movement player;
-    RadialIndicatorClick radial;
+    public RadialIndicatorClick radial;
     CharacterSwitcher switcher;
     MultipleTargetCamera multipleTarget;
     public List<GameObject> players = new List<GameObject>();
@@ -37,6 +37,13 @@ public class PlayerInputHandler : MonoBehaviour
         if (HeartSystem.dead == true)
         {
             Destroy(gameObject);
+            
+        }
+
+        if (LoadedScene.newScene == true)
+        {
+            radial = GameObject.Find("RadialIndicatorUI").GetComponent<RadialIndicatorClick>();
+            LoadedScene.radialcount++;
         }
     }
 
@@ -82,7 +89,6 @@ public class PlayerInputHandler : MonoBehaviour
 
                     trigger.DestroyText();
                     paused = false;
-                    Debug.Log("destroy");
                 }
             }
 
@@ -111,7 +117,6 @@ public class PlayerInputHandler : MonoBehaviour
     public void NewSpawn()
     {
         spawn = GameObject.FindGameObjectWithTag("SpawnPoint");
-        Debug.Log("new spawn");
     }
 
     public void Unpause()

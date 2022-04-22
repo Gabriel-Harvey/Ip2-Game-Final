@@ -24,13 +24,15 @@ public class HeartSystem : MonoBehaviour
     {
         if (dead == true)
         {
+           
+            dead = false;
             SceneManager.LoadScene("Death Screen");
         }
     }
 
     public void TakeDamage(int d)
     {
-
+        
         if (life >= 1)
         {
             life -= d;
@@ -42,4 +44,6 @@ public class HeartSystem : MonoBehaviour
             }
         }
     }
+
+    
 }

@@ -6,7 +6,10 @@ using UnityEngine.InputSystem;
 public class CharacterSwitcher : MonoBehaviour
 {
     public static CharacterSwitcher Instance;
+    public GameObject LvlButton;
     public int index = 0;
+    public int imageIndex;
+    public GameObject[] Playerimages;
     public void Start()
     {
         if (Instance != null)
@@ -25,12 +28,19 @@ public class CharacterSwitcher : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if(imageIndex == 2)
+        {
+            imageIndex = 0;
+            LvlButton.SetActive(true);
+        }
     }
 
     public void SwitchCharacterSpawn(PlayerInput input)
     {
 
-        StartCoroutine(WaitTimerCourotine());      
+        StartCoroutine(WaitTimerCourotine());
+        Playerimages[imageIndex].SetActive(true);
+        imageIndex++;
     }
 
     IEnumerator WaitTimerCourotine()

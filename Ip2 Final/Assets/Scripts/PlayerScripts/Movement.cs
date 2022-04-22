@@ -70,10 +70,10 @@ public class Movement : MonoBehaviour
 
     public void NewScene()
     {
-        GameObject.Find("Evangelos(Clone)").transform.position = PlayerInputHandler.spawn.transform.position;
-        GameObject.Find("Angelica(Clone)").transform.position = PlayerInputHandler.spawn.transform.position;
-        //PlayerCollisionMangement.Death = false;
-        Debug.Log("called");
+        //GameObject.Find("Evangelos(Clone)").transform.position = PlayerInputHandler.spawn.transform.position;
+        //GameObject.Find("Angelica(Clone)").transform.position = PlayerInputHandler.spawn.transform.position;
+        gameObject.transform.position = PlayerInputHandler.spawn.transform.position;
+        heart = GameObject.Find("Health").GetComponent<HeartSystem>();
     }
 
     private void flip()
