@@ -24,10 +24,7 @@ public class CharacterSwitcher : MonoBehaviour
 
     public void Update()
     {
-        if (HeartSystem.dead == true)
-        {
-            Destroy(gameObject);
-        }
+        
         if(imageIndex == 2)
         {
             imageIndex = 0;

@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6c33cb44dbd23324fb06488765e9ae85, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4efb7b75913c3a84c8d21dd483d3bcc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -150,6 +150,8 @@ MonoBehaviour:
   _rigidbody: {fileID: 3669349219572978950}
   collisionMangement: {fileID: -4606681791493848507}
   heart: {fileID: 0}
+  audioSource: {fileID: 8020492325473789930}
+  jumpsound: {fileID: 8300000, guid: 112dde8086bbdeb4b80b258dd94ccaf1, type: 3}
 --- !u!114 &-8796683352936949022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,9 +182,11 @@ MonoBehaviour:
   isPressed: 0
   inputHandler: {fileID: 0}
   movement: {fileID: 7279370595225881905}
+  heartSystem: {fileID: 0}
   leverColliding: 0
   audioSource: {fileID: 8020492325473789930}
-  button: {fileID: 8300000, guid: fac734a162625a442a836033dd6bf1ea, type: 3}
+  death: {fileID: 8300000, guid: 8af3526ad4302ed4eba9fa5e2af04c40, type: 3}
+  soulSound: {fileID: 8300000, guid: 46b44602ce2db944d83623aed8c146b5, type: 3}
   textTrigger: {fileID: 0}
 --- !u!82 &8020492325473789930
 AudioSource:
@@ -297,7 +301,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 2.04}
+    oldSize: {x: 0.63, y: 2.04}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

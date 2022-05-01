@@ -12,7 +12,7 @@ public class PressurePlate : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.name == "Evangelos(Clone)")
         {
             collision.transform.SetParent(transform);
             //ispressed = true;
@@ -23,7 +23,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.name == "Evangelos(Clone)")
         {
             collision.transform.SetParent(transform);
             //ispressed = false;

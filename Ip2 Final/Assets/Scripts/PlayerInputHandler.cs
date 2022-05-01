@@ -26,6 +26,7 @@ public class PlayerInputHandler : MonoBehaviour
         indexValue = switcher.index;
 
         player = GameObject.Instantiate(players[switcher.index], spawn.transform.position, spawn.transform.rotation).GetComponent<Movement>();
+        player.gameObject.GetComponent<PlayerCollisionMangement>().inputHandler = this;
         radial = GameObject.Find("RadialIndicatorUI").GetComponent<RadialIndicatorClick>();
         GameObject.DontDestroyOnLoad(this.gameObject);
 

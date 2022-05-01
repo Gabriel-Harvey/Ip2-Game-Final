@@ -20,6 +20,11 @@ public class Movement : MonoBehaviour
     public HeartSystem heart;
     PlayerInputHandler PlayerInputHandler;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip jumpsound;
+
+
     private void Start()
     {
         PlayerInputHandler = GameObject.FindGameObjectWithTag("PlayerInput").GetComponent<PlayerInputHandler>();
@@ -62,10 +67,7 @@ public class Movement : MonoBehaviour
 
     public void Update()
     {
-        if (HeartSystem.dead == true)
-        {
-            Destroy(gameObject);
-        }
+        
     }
 
     public void NewScene()
@@ -86,6 +88,7 @@ public class Movement : MonoBehaviour
 
     public void LargeJump()
     {
+        audioSource.PlayOneShot(jumpsound);
         _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpForce);
     }
 

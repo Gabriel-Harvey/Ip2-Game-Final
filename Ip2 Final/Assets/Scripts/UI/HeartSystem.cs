@@ -11,6 +11,10 @@ public class HeartSystem : MonoBehaviour
     public static bool dead;
     //public static bool Death;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip Gameover;
+
     private void Start()
     {
         
@@ -24,7 +28,7 @@ public class HeartSystem : MonoBehaviour
     {
         if (dead == true)
         {
-           
+            audioSource.PlayOneShot(Gameover);
             dead = false;
             SceneManager.LoadScene("Death Screen");
         }

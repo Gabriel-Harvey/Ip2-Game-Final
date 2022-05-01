@@ -22,11 +22,13 @@ public class PlayerCollisionMangement : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource audioSource;
-    public AudioClip button;
+    public AudioClip death;
+    public AudioClip soulSound;
 
     [Header("Portal")]
     SoulsManager souls;
     bool canLeave;
+    GameObject EndScreen;
 
     [Header("Naritive Triggers")]
     public TextTrigger textTrigger;
@@ -36,7 +38,7 @@ public class PlayerCollisionMangement : MonoBehaviour
     {
         heartSystem = GameObject.FindGameObjectWithTag("InputManager").GetComponent<HeartSystem>();
         souls = GameObject.Find("SoulsManager").GetComponent<SoulsManager>();
-        inputHandler = GameObject.FindGameObjectWithTag("PlayerInput").GetComponent<PlayerInputHandler>();
+        //inputHandler = GameObject.FindGameObjectWithTag("PlayerInput").GetComponent<PlayerInputHandler>();
     }
 
     private void FixedUpdate()
@@ -48,7 +50,8 @@ public class PlayerCollisionMangement : MonoBehaviour
 
         if (exitColliding == true && canLeave == true && isPressed == true)
         {
-            SceneManager.LoadScene("MenuScreen");
+            //SceneManager.LoadScene("MenuScreen");
+            PointsManager.instance.OpenScreen();
         }
 
         if (leverColliding == true && isPressed == true)
@@ -67,15 +70,13 @@ public class PlayerCollisionMangement : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case ("Death"):
+                audioSource.PlayOneShot(death);
                 Death = true;
                 heartSystem.TakeDamage(1);
                 break;
 
-            case ("Button"):
-                audioSource.PlayOneShot(button);
-                break;
-
             case ("Soul"):
+                audioSource.PlayOneShot(soulSound);
                 GameObject.Destroy(collision.gameObject);
                 souls.increaseSouls();
                 break;
@@ -139,11 +140,8 @@ public class PlayerCollisionMangement : MonoBehaviour
 
     public void TextCall()
     {
-
         inputHandler.trigger = textTrigger;
         inputHandler.paused = true;
-
-  
     }
 
     public void NewScene()

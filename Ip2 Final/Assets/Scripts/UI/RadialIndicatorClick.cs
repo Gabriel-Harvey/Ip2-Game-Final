@@ -12,7 +12,6 @@ public class RadialIndicatorClick : MonoBehaviour
 
     [SerializeField] private Image radialIndicatorUI = null;
 
-    [SerializeField] private KeyCode selectKey = KeyCode.Mouse0;
 
     [SerializeField] private UnityEvent myEvent = null;
 

@@ -47,10 +47,7 @@ public class MultipleTargetCamera : MonoBehaviour
 
     public void Update()
     {
-        if (HeartSystem.dead == true)
-        {
-            Destroy(gameObject);
-        }
+        
     }
 
     void Zoom()
